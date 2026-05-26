@@ -10,11 +10,12 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --blue-dark:   #0f2744;
+            --blue-dark:   #102542;
             --blue-mid:    #1B3A5C;
             --blue-body:   #2D5282;
             --blue-light:  #4A7FB5;
             --blue-pale:   #EBF3FC;
+            --blue-pal2:   #d0e2f7;
             --teal-accent: #3BBFB5;
             --slate:       #6B8299;
             --slate-lt:    #A0B4C8;
@@ -212,7 +213,7 @@
         #about { background: var(--white); }
 
         .about-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
+            display: grid; grid-template-columns: 5fr 1fr;
             gap: 72px; align-items: start; margin-top: 52px;
         }
 
@@ -337,46 +338,59 @@
             color: var(--slate); padding: 4px 10px;
             display: inline-block; width: fit-content;
         }
-
-        /* ─── WHY US ─── */
-        #whyus { overflow: hidden; }
-        #whyus .bg-layer { opacity: 0.80; }
-        #whyus .bg-layer::after {
-            content: "";
-            position: absolute; inset: 0;
-            background: rgba(0, 0, 0, 0.94);
-        }
-        #whyus .sec-h2 { color: white; }
-        #whyus .label { color: var(--slate-lt); }
-        #whyus .label::before { background: var(--slate-lt); }
+/* ─── WHY US (Style disamakan dengan Capabilities) ─── */
+        #whyus { background: var(--white); }
+        
+        /* Menghilangkan background gelap jika elemen ini masih ada di HTML */
+        #whyus .bg-layer { display: none; }
+        
+        #whyus .sec-h2 { color: var(--blue-dark); }
+        #whyus .label { color: var(--slate); }
+        #whyus .label::before { background: var(--slate); }
 
         .whyus-intro {
-            font-size: 16px; color: rgba(160,180,200,0.85);
+            font-size: 16px; color: var(--blue-body);
             max-width: 560px; line-height: 1.65; margin-top: 20px;
         }
 
         .whyus-grid {
             display: grid; grid-template-columns: repeat(3,1fr);
-            gap: 1px; background: rgba(255,255,255,0.08);
+            gap: 1px; background: rgba(15,39,68,0.08); /* Warna gap/garis pembatas gelap */
             margin-top: 52px;
         }
+        
         .why-card {
-            background: rgba(15,39,68,0.6); padding: 40px 36px;
-            transition: background 0.2s;
+            background: var(--white); padding: 40px 36px;
+            transition: background 0.25s;
+            position: relative; overflow: hidden;
         }
-        .why-card:hover { background: rgba(15,39,68,0.4); }
+        
+        /* Menambahkan efek garis atas saat hover agar sama dengan capabilities */
+        .why-card::before {
+            content: ""; position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: var(--blue-light);
+            transform: scaleX(0); transform-origin: left;
+            transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+        }
+        
+        .why-card:hover { background: var(--blue-pale); }
+        .why-card:hover::before { transform: scaleX(1); }
+        
         .why-num {
             font-family: "DM Mono", monospace;
             font-size: 9px; letter-spacing: 0.22em; color: var(--blue-light);
             margin-bottom: 14px;
         }
+        
         .why-title {
-            font-size: 16px; font-weight: 700; color: white;
+            font-size: 16px; font-weight: 700; color: var(--blue-dark);
             letter-spacing: -0.01em; margin-bottom: 10px; text-transform: uppercase;
         }
-        .why-desc { font-size: 13px; color: rgba(160,180,200,0.82); line-height: 1.65; }
-        .why-desc strong { color: white; }
-
+        
+        .why-desc { font-size: 13px; color: var(--blue-body); line-height: 1.65; }
+        .why-desc strong { color: var(--blue-dark); }
+    
         /* ─── QUIZ ─── */
         #diagnosis { overflow: hidden; }
         #diagnosis .bg-layer { opacity: 0.15; }
@@ -473,73 +487,79 @@
         .q-reset:hover { color: var(--blue-dark); }
 
         /* ─── FOOTER ─── */
-        #contact { overflow: hidden; }
-        #contact .bg-layer { opacity: 0.80; }
-        #contact .bg-layer::after {
-            content: "";
-            position: absolute; inset: 0;
-            background: rgba(0, 0, 0, 0.99);
-        }
+        /* ─── FOOTER (TEMA TERANG) ─── */
+        /*#contact { overflow: hidden; background: var(--blue-pale); }*/
+        
+        /* Kita hilangkan layer gelapnya 
+        /*#contact .bg-layer { display: none; }*/*/
 
-        .contact-inner { max-width: 1300px; margin: 0 auto; padding: 100px 56px; }
+        #contact { overflow: hidden; background: var(--blue-pale2); }
+        
+        /* Kita hilangkan layer gelapnya */
+        /*#contact .bg-layer { display: none; }*/
+
+        .contact-inner { max-width: 1300px; margin: 0 auto; padding: 100px 56px; position: relative; z-index: 1; }
 
         .contact-head { text-align: center; margin-bottom: 72px; }
 
         .contact-h2 {
             font-size: clamp(36px, 5vw, 68px);
             font-weight: 700; letter-spacing: -0.03em; line-height: 0.96;
-            color: white; margin-bottom: 22px;
+            color: var(--blue-dark); /* Ubah ke gelap */
+            margin-bottom: 22px;
         }
-        .contact-h2 em { font-style: italic; font-weight: 300; color: rgba(200,220,240,0.9); }
+        .contact-h2 em { font-style: italic; font-weight: 300; color: var(--blue-light); }
 
         .contact-sub {
-            font-size: 15px; color: rgba(160,180,200,0.8);
+            font-size: 15px; color: var(--blue-body); /* Ubah ke gelap */
             margin-bottom: 36px; line-height: 1.65; max-width: 520px; margin-left: auto; margin-right: auto;
         }
 
         .btn-contact {
-            background: white; color: var(--blue-dark);
+            background: var(--blue-dark); color: white; /* Tombol dibalik warnanya */
             font-family: "DM Mono", monospace;
             font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
             padding: 16px 44px; text-decoration: none; display: inline-block;
             transition: all 0.22s; margin-bottom: 16px;
         }
-        .btn-contact:hover { background: var(--blue-pale); transform: translateY(-2px); }
+        .btn-contact:hover { background: var(--teal-accent); color: var(--blue-dark); transform: translateY(-2px); }
 
         .contact-email {
             display: block;
             font-family: "DM Mono", monospace;
             font-size: 11px; letter-spacing: 0.15em;
-            color: rgba(160,180,200,0.7); text-decoration: none;
+            color: var(--slate); text-decoration: none;
             transition: color 0.2s; margin-top: 8px;
         }
-        .contact-email:hover { color: white; }
+        .contact-email:hover { color: var(--blue-dark); }
 
         .footer-bottom {
             display: grid; grid-template-columns: 1fr 1fr 1fr;
             gap: 40px; padding-top: 48px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(15, 39, 68, 0.1); /* Garis pembatas jadi gelap transparan */
             align-items: start;
         }
 
-        .footer-logo { height: 30px; width: auto; display: block; margin-bottom: 10px;
-            /* PNG transparan — tetap terlihat di dark bg */ }
+        .footer-logo { 
+            height: 30px; width: auto; display: block; margin-bottom: 10px;
+            /* Pastikan logo Anda terlihat di background terang. Jika logo warna putih, Anda mungkin perlu menggantinya dengan versi warna gelap */
+        }
 
         .f-label {
             font-family: "DM Mono", monospace;
             font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
-            color: var(--blue-light); margin-bottom: 8px;
+            color: var(--slate); margin-bottom: 8px;
         }
-        .f-val { font-size: 13px; color: rgba(160,180,200,0.8); line-height: 1.6; }
-        .f-val strong { color: white; }
-        .f-val a { color: rgba(160,180,200,0.8); text-decoration: none; transition: color 0.2s; }
-        .f-val a:hover { color: white; }
+        .f-val { font-size: 13px; color: var(--blue-body); line-height: 1.6; }
+        .f-val strong { color: var(--blue-dark); }
+        .f-val a { color: var(--blue-body); text-decoration: none; transition: color 0.2s; }
+        .f-val a:hover { color: var(--teal-accent); }
 
         .footer-copy {
             text-align: center; margin-top: 40px;
             font-family: "DM Mono", monospace; font-size: 9px;
             letter-spacing: 0.18em; text-transform: uppercase;
-            color: rgba(160,180,200,0.3);
+            color: var(--blue-dark);
         }
 
         /* ─── ANIMATIONS ─── */
@@ -621,9 +641,7 @@
 
         <p class="hero-sub">
             Kami hadir menjadi partner bagi para pemilik usaha untuk mulai menggunakan
-            <strong>data sebagai senjata strategis</strong> dalam mempertajam setiap keputusan bisnis, 
-            untuk semua skala, dari UMKM hingga korporasi regional.
-        </p>
+            <strong>data sebagai senjata strategis</strong> dalam mempertajam setiap keputusan bisnis.
 
         <div class="hero-btns">
             <a href="#diagnosis" class="btn-primary">Diagnosa Bisnis Anda</a>
@@ -645,23 +663,23 @@
             <div class="reveal d1">
                 <p class="about-body">
                     PT Nalapana Mitra Data bergerak sebagai konsultan data analytics yang menghadirkan
-                    solusi <strong>mudah dipahami namun berdampak nyata</strong> pada bisnis.
+                    solusi yang <strong>mudah dipahami dan berdampak nyata</strong> pada bisnis.
                 </p>
                 <p class="about-body">
                     Kami hadir untuk memastikan budaya <strong>data-driven</strong> dapat diterapkan
-                    di berbagai skala bisnis — terutama di
+                    di berbagai skala bisnis. Terutama di
                     <strong>Yogyakarta dan seluruh wilayah regional sekitarnya.</strong>
                 </p>
                 <p class="about-body">
                     Kami memberikan solusi yang relevan, terukur, dan dapat langsung
-                    diimplementasikan — bukan sekadar laporan yang menumpuk di laci.
+                    diimplementasikan.
                 </p>
                 <div class="quote-block">
-                    <p class="quote-text">"Kami tidak sekadar melihat angka, tapi menyajikan pemahaman melalui emosi dan realitas operasional bisnis Anda."</p>
+                    <p class="quote-text">"Kami tidak sekadar melihat angka, tapi menyajikan pemahaman bisnis dan realitas operasional bisnis Anda."</p>
                 </div>
             </div>
 
-            <div class="reveal d2">
+         <!--    <div class="reveal d2">
                 <div class="about-stats">
                     <div class="stat-card">
                         <div class="stat-num">2<sup>+</sup></div>
@@ -677,7 +695,7 @@
                         <div class="stat-label">Cakupan Wilayah</div>
                         <div class="stat-num" style="font-size:28px; margin-bottom:8px;">Yogyakarta &amp; Regional Sekitarnya</div>
                         <div class="stat-desc">Solusi cost-effective dengan pemahaman mendalam terhadap ekosistem bisnis lokal dan dinamika wilayah.</div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -700,22 +718,22 @@
         <div class="analytics-grid">
             <div class="a-card reveal d1">
                 <div class="a-num">01</div>
-                <div class="a-title">Mengakhiri Era "Menebak-Nebak"</div>
-                <div class="a-desc">Ubah keraguan saat mengambil keputusan menjadi kepastian yang terukur berdasarkan fakta lapangan — bukan sekadar intuisi atau tren sesaat.</div>
+                <div class="a-title">Akhiri Era Menebak</div>
+                <div class="a-desc">Ubah keraguan saat mengambil keputusan menjadi kepastian yang terukur berdasarkan fakta lapangan bukan sekadar intuisi atau tren sesaat.</div>
             </div>
             <div class="a-card reveal d2">
                 <div class="a-num">02</div>
-                <div class="a-title">Mengubah Data Mentah Menjadi Aset</div>
-                <div class="a-desc">Data yang berserakan di catatan manual, Excel, atau sistem kasir bisa diolah menjadi informasi bernilai tinggi yang siap digunakan untuk pengambilan keputusan.</div>
+                <div class="a-title">Ubah Data Mentah Menjadi Aset</div>
+                <div class="a-desc">Data yang berserakan di berbagai file excel atau sistem kasir bisa diolah menjadi informasi bernilai tinggi yang siap digunakan untuk pengambilan keputusan.</div>
             </div>
             <div class="a-card reveal d3">
                 <div class="a-num">03</div>
-                <div class="a-title">Efisiensi di Tengah Ketidakpastian</div>
-                <div class="a-desc">Dalam kondisi pasar yang dinamis, data analytics membantu mendeteksi celah biaya dan peluang keuntungan lebih cepat — operasional tetap lincah dan efisien.</div>
+                <div class="a-title">Efisien di Tengah Ketidakpastian</div>
+                <div class="a-desc">Dalam kondisi pasar yang dinamis, data analytics membantu mendeteksi celah biaya dan peluang keuntungan lebih cepat, operasional tetap lincah dan efisien.</div>
             </div>
             <div class="a-card reveal d4">
                 <div class="a-num">04</div>
-                <div class="a-title">Navigasi Bisnis yang Terarah</div>
+                <div class="a-title">Navigasi Bisnis lebih Terarah</div>
                 <div class="a-desc">Data analytics memetakan posisi bisnis Anda saat ini, memahami perilaku pelanggan, dan memprediksi arah pertumbuhan ke depan dengan lebih terukur.</div>
             </div>
         </div>
@@ -734,35 +752,34 @@
                 <h2 class="sec-h2 reveal">Nalapana Dapat<br>Membantu Apa Saja?</h2>
             </div>
             <p class="cap-intro-right reveal d2">
-                Kami membantu pimpinan bisnis mengubah tumpukan data mentah menjadi wawasan strategis yang tajam — untuk meminimalkan risiko dan meningkatkan profitabilitas di
-                <strong>semua skala bisnis.</strong>
+                Kami membantu pemilik bisnis mengubah tumpukan data mentah menjadi wawasan strategis yang tajam untuk meminimalkan risiko dan meningkatkan profitabilitas.
             </p>
         </div>
 
         <div class="cap-grid reveal">
             <div class="cap-card">
-                <div class="cap-idx">01 / Konsultasi</div>
-                <div class="cap-title">Konsultasi Solusi Analitik</div>
-                <div class="cap-desc">Layanan konsultasi yang mudah dicerna namun berdampak nyata — dirancang khusus untuk skala kebutuhan pelaku usaha di <strong>Yogyakarta dan wilayah regional sekitarnya.</strong></div>
+                <div class="cap-idx">01 / Strategi</div>
+                <div class="cap-title">Data Strategy & Consultation</div>
+                <div class="cap-desc">Diskusi strategis untuk memetakan tantangan bisnis Anda. Kami bantu temukan dimana potensi data Anda bisa menghasilkan keuntungan, khusus untuk pelaku usaha di Yogyakarta dan wilayah regional sekitarnya.</div>
                 <span class="cap-badge">Semua Skala</span>
             </div>
             <div class="cap-card">
-                <div class="cap-idx">02 / Custom</div>
-                <div class="cap-title">Custom Use Case Development</div>
-                <div class="cap-desc">Pengembangan solusi sesuai kebutuhan dan skala bisnis Anda — dari model prediksi permintaan, segmentasi pelanggan, hingga deteksi anomali operasional.</div>
-                <span class="cap-badge">Spesifik & Terukur</span>
+                <div class="cap-idx">02 / Insight</div>
+                <div class="cap-title">Business Insights & Reporting</div>
+                <div class="cap-desc">Kami dapat mengolah data mentah Anda menjadi <i>report</i> serta visual yang mudah dibaca. Bukan sekedar tumpukan angka, Anda langsung mendapatkan insight siap pakai untuk pengambilan keputusan tanpa perlu pusing di depan file excel.</div>
+                <span class="cap-badge">Praktis & Spesifik</span>
             </div>
             <div class="cap-card">
-                <div class="cap-idx">03 / Reporting</div>
-                <div class="cap-title">Laporan Siap Pakai</div>
-                <div class="cap-desc">Laporan rutin yang terstruktur dan konsisten untuk memantau kesehatan bisnis tanpa perlu repot mengolah sendiri. Fokus pada bisnis, bukan pada spreadsheet.</div>
-                <span class="cap-badge">Mingguan / Bulanan</span>
+                <div class="cap-idx">03 Analytics/ </div>
+                <div class="cap-title">Advanced Analytics Solutions</div>
+                <div class="cap-desc">Pengembangan solusi sesuai kebutuhan dan skala bisnis Anda. Dari model prediksi permintaan, segmentasi pelanggan, hingga deteksi anomali operasional. </div>
+                <span class="cap-badge">Prediktif & Adaptif</span>
             </div>
             <div class="cap-card">
-                <div class="cap-idx">04 / Infrastruktur</div>
-                <div class="cap-title">Data System — Kelola Mandiri</div>
-                <div class="cap-desc">Pembangunan sistem pengolahan data yang praktis bagi Anda yang ingin memegang kendali penuh dan mengelola data secara internal — untuk <strong>semua skala bisnis.</strong></div>
-                <span class="cap-badge">Ownership Penuh</span>
+                <div class="cap-idx">04 / </div>
+                <div class="cap-title">Data Training & Workshops</div>
+                <div class="cap-desc"><i>Upskill</i> tim internal Anda dalama mengolah dan membaca data secara efektif. Kami menyediakan sesi pelatihan praktis <i>(hands-on)</i> untuk memastikan tim Anda mampu mengoperasikan <i>tools</i>, menyusun laporan, dan menjaga keberlanjutan data organisasi/perusahaan.</strong></div>
+                <span class="cap-badge">Pemberdayaan Tim</span>
             </div>
         </div>
     </div>
@@ -783,17 +800,17 @@
             <div class="why-card reveal d1">
                 <div class="why-num">01</div>
                 <div class="why-title">Sinergi Strategis</div>
-                <div class="why-desc">Memadukan keahlian <strong>Senior Data Science</strong> dan <strong>IT Senior Business Analysis</strong> — solusi mutakhir secara teknis sekaligus layak secara komersial.</div>
+                <div class="why-desc">Memadukan keahlian <strong>Senior Data Science</strong> dan <strong>IT Senior Business Analysis</strong>. Solusi mutakhir secara teknis sekaligus layak secara komersial.</div>
             </div>
             <div class="why-card reveal d2">
                 <div class="why-num">02</div>
                 <div class="why-title">Kemitraan yang Akuntabel</div>
-                <div class="why-desc">Sebagai PT resmi, kami menjamin standar profesionalisme, transparansi penuh, dan keamanan data dalam setiap bentuk kolaborasi.</div>
+                <div class="why-desc">Sebagai PT resmi, kami menjamin <strong>standar profesionalisme</strong>, transparansi penuh, dan keamanan data dalam setiap bentuk kolaborasi.</div>
             </div>
             <div class="why-card reveal d3">
                 <div class="why-num">03</div>
                 <div class="why-title">Lokasi Strategis</div>
-                <div class="why-desc">Berbasis di <strong>Yogyakarta</strong> — solusi cost-effective dengan pemahaman mendalam terhadap ekosistem bisnis lokal dan <strong>seluruh wilayah regional sekitarnya.</strong></div>
+                <div class="why-desc">Berbasis di <strong>Yogyakarta</strong> — solusi dengan pemahaman mendalam terhadap ekosistem bisnis lokal dan <strong>seluruh wilayah regional sekitarnya.</strong></div>
             </div>
             <div class="why-card reveal d1">
                 <div class="why-num">04</div>
@@ -803,17 +820,16 @@
             <div class="why-card reveal d2">
                 <div class="why-num">05</div>
                 <div class="why-title">Berorientasi Implementasi</div>
-                <div class="why-desc">Layanan kami tidak berhenti pada eskalasi hasil. Kami terlibat aktif memastikan tim Anda benar-benar mengadopsi solusi demi dampak berkelanjutan.</div>
+                <div class="why-desc">Layanan kami tidak berhenti pada eskalasi hasil. Kami <strong>terlibat aktif</strong> memastikan tim Anda benar-benar mengadopsi solusi demi dampak berkelanjutan.</div>
             </div>
             <div class="why-card reveal d3">
                 <div class="why-num">06</div>
                 <div class="why-title">Sesuai Kebutuhan, Sesuai Skala</div>
-                <div class="why-desc">Kami menyesuaikan diri dengan dinamika bisnis Anda — solusi yang relevan untuk <strong>semua skala,</strong> dari operasional kecil hingga sistem yang kompleks.</div>
+                <div class="why-desc">Kami menyesuaikan diri dengan dinamika bisnis Anda. Solusi yang relevan untuk <strong>semua skala,</strong> dari operasional kecil hingga sistem yang kompleks.</div>
             </div>
         </div>
     </div>
 </section>
-
 
 <!-- ═══════════════════════════════════════
      QUIZ DIAGNOSIS
@@ -823,69 +839,117 @@
     <div class="sec-wrap">
         <div class="label reveal">/ 05 — Self-Assessment</div>
         <h2 class="sec-h2 reveal">Diagnosa Data<br>Usaha Anda.</h2>
-        <p class="reveal" style="font-size:13px; color:var(--blue-body); margin-top:10px; font-family:'DM Mono',monospace; letter-spacing:0.1em;">
-            4 pertanyaan · Jawaban jujur · Diagnosa akurat
-        </p>
 
         <div class="quiz-box reveal d1">
-            <div class="q-progress" id="qprog" style="width:25%"></div>
+            <div class="q-progress" id="qprog" style="width:12.5%"></div>
 
+            <!-- PERTANYAAN 01 -->
             <div id="qs1">
-                <div class="q-label">Pertanyaan 01 / 04</div>
-                <div class="q-question">Bagaimana Anda mengambil keputusan besar — stok, promo, atau ekspansi?</div>
+                <div class="q-label">Pertanyaan 01 / 08</div>
+                <div class="q-question">Bagaimana Anda mengambil keputusan besar (misal: stok barang / promo)?</div>
                 <div class="q-opts">
-                    <button class="q-opt" onclick="qNext(1,1)"><span class="ok">A —</span>&nbsp;Berdasarkan feeling dan pengalaman saja.</button>
-                    <button class="q-opt" onclick="qNext(1,2)"><span class="ok">B —</span>&nbsp;Melihat rekap penjualan atau laporan akhir bulan.</button>
-                    <button class="q-opt" onclick="qNext(1,3)"><span class="ok">C —</span>&nbsp;Analisis tren pelanggan dan performa produk secara rutin.</button>
+                    <button class="q-opt" onclick="qNext(1,1)"><span class="ok">A —</span> Pakai feeling atau melihat apa yang sedang ramai saja.</button>
+                    <button class="q-opt" onclick="qNext(1,2)"><span class="ok">B —</span> Melihat catatan penjualan sekilas di akhir bulan.</button>
+                    <button class="q-opt" onclick="qNext(1,3)"><span class="ok">C —</span> Menganalisis tren data pelanggan dan performa produk secara rutin.</button>
                 </div>
             </div>
 
+            <!-- PERTANYAAN 02 -->
             <div id="qs2" class="q-hidden">
-                <div class="q-label">Pertanyaan 02 / 04</div>
-                <div class="q-question">Di mana data operasional bisnis Anda tersimpan saat ini?</div>
+                <div class="q-label">Pertanyaan 02 / 08</div>
+                <div class="q-question">Di mana data bisnis Anda disimpan saat ini?</div>
                 <div class="q-opts">
-                    <button class="q-opt" onclick="qNext(2,1)"><span class="ok">A —</span>&nbsp;Nota kertas, pesan WA, atau diingat di kepala.</button>
-                    <button class="q-opt" onclick="qNext(2,2)"><span class="ok">B —</span>&nbsp;Excel atau Google Sheets, tapi jarang dianalisis.</button>
-                    <button class="q-opt" onclick="qNext(2,3)"><span class="ok">C —</span>&nbsp;Dashboard terpusat dengan laporan real-time.</button>
+                    <button class="q-opt" onclick="qNext(2,1)"><span class="ok">A —</span> Masih di nota kertas atau hanya diingatan saja.</button>
+                    <button class="q-opt" onclick="qNext(2,2)"><span class="ok">B —</span> Di Excel/Google Sheets atau sistem kasir, tapi jarang dibuka.</button>
+                    <button class="q-opt" onclick="qNext(2,3)"><span class="ok">C —</span> Sudah terpusat dalam dasbor laporan yang mudah dipantau kapan saja.</button>
                 </div>
             </div>
 
+            <!-- PERTANYAAN 03 -->
             <div id="qs3" class="q-hidden">
-                <div class="q-label">Pertanyaan 03 / 04</div>
-                <div class="q-question">Seberapa sering Anda mengevaluasi efisiensi biaya operasional?</div>
+                <div class="q-label">Pertanyaan 03 / 08</div>
+                <div class="q-question">Seberapa sering Anda mengevaluasi efektivitas biaya/operasional?</div>
                 <div class="q-opts">
-                    <button class="q-opt" onclick="qNext(3,1)"><span class="ok">A —</span>&nbsp;Saat kas mulai menipis dan sudah terasa ada masalah.</button>
-                    <button class="q-opt" onclick="qNext(3,2)"><span class="ok">B —</span>&nbsp;Sesekali ketika ada waktu untuk merekap.</button>
-                    <button class="q-opt" onclick="qNext(3,3)"><span class="ok">C —</span>&nbsp;Terjadwal setiap minggu, berbasis data aktual.</button>
+                    <button class="q-opt" onclick="qNext(3,1)"><span class="ok">A —</span> Nanti saja kalau uang di kas mulai menipis.</button>
+                    <button class="q-opt" onclick="qNext(3,2)"><span class="ok">B —</span> Sesekali kalau ada waktu luang untuk rekap.</button>
+                    <button class="q-opt" onclick="qNext(3,3)"><span class="ok">C —</span> Setiap minggu/bulan berdasarkan data real-time.</button>
                 </div>
             </div>
 
+            <!-- PERTANYAAN 04 -->
             <div id="qs4" class="q-hidden">
-                <div class="q-label">Pertanyaan 04 / 04</div>
-                <div class="q-question">Bagaimana Anda menentukan target penjualan untuk periode berikutnya?</div>
+                <div class="q-label">Pertanyaan 04 / 08</div>
+                <div class="q-question">Bagaimana Anda menentukan target penjualan dan anggaran operasional?</div>
                 <div class="q-opts">
-                    <button class="q-opt" onclick="qFinish(1)"><span class="ok">A —</span>&nbsp;Tidak ada target formal — yang penting tidak rugi.</button>
-                    <button class="q-opt" onclick="qFinish(2)"><span class="ok">B —</span>&nbsp;Menaikkan sedikit dari angka bulan lalu.</button>
-                    <button class="q-opt" onclick="qFinish(3)"><span class="ok">C —</span>&nbsp;Perhitungan BEP, target profit, dan proyeksi berbasis historis.</button>
+                    <button class="q-opt" onclick="qNext(4,1)"><span class="ok">A —</span> Tidak ada target khusus, yang penting bisa bayar gaji dan sewa.</button>
+                    <button class="q-opt" onclick="qNext(4,2)"><span class="ok">B —</span> Ada target, tapi biasanya hanya sekadar menaikkan angka dari bulan sebelumnya tanpa hitungan rinci.</button>
+                    <button class="q-opt" onclick="qNext(4,3)"><span class="ok">C —</span> Berdasarkan perhitungan biaya operasional tetap dan variabel agar mencapai titik impas (break-even) dan profit yang diinginkan.</button>
                 </div>
             </div>
 
-            <div id="qresults" class="q-hidden">
-                <div id="r-chaos" class="q-result">
+            <!-- PERTANYAAN 05 -->
+            <div id="qs5" class="q-hidden">
+                <div class="q-label">Pertanyaan 05 / 08</div>
+                <div class="q-question">Sejauh mana Anda mengenal perilaku pelanggan yang datang?</div>
+                <div class="q-opts">
+                    <button class="q-opt" onclick="qNext(5,1)"><span class="ok">A —</span> Hanya berdasarkan ingatan atau pengamatan sekilas di lokasi usaha.</button>
+                    <button class="q-opt" onclick="qNext(5,2)"><span class="ok">B —</span> Melihat laporan barang laku, namun belum bisa memetakan siapa orang yang membelinya.</button>
+                    <button class="q-opt" onclick="qNext(5,3)"><span class="ok">C —</span> Menggunakan data profil dan riwayat transaksi untuk memetakan kapan mereka harus kembali belanja.</button>
+                </div>
+            </div>
+
+            <!-- PERTANYAAN 06 -->
+            <div id="qs6" class="q-hidden">
+                <div class="q-label">Pertanyaan 06 / 08</div>
+                <div class="q-question">Bagaimana cara Anda menentukan kepada siapa promo/iklan dikirimkan?</div>
+                <div class="q-opts">
+                    <button class="q-opt" onclick="qNext(6,1)"><span class="ok">A —</span> Mengandalkan insting bahwa "makin banyak yang tahu, makin bagus" (sebar brosur / blast umum).</button>
+                    <button class="q-opt" onclick="qNext(6,2)"><span class="ok">B —</span> Mengikuti tren media sosial dan berharap menjangkau orang yang tepat.</button>
+                    <button class="q-opt" onclick="qNext(6,3)"><span class="ok">C —</span> Berdasarkan segmentasi data pelanggan agar promo hanya terkirim ke target yang paling potensial.</button>
+                </div>
+            </div>
+
+            <!-- PERTANYAAN 07 -->
+            <div id="qs7" class="q-hidden">
+                <div class="q-label">Pertanyaan 07 / 08</div>
+                <div class="q-question">Apakah Anda mempertimbangkan faktor luar dalam merencanakan stok / promo?</div>
+                <div class="q-opts">
+                    <button class="q-opt" onclick="qNext(7,1)"><span class="ok">A —</span> Tidak, bisnis berjalan seperti biasa setiap harinya.</button>
+                    <button class="q-opt" onclick="qNext(7,2)"><span class="ok">B —</span> Tahu ada keramaian, tapi hanya bersiap-siap secara mendadak saat lokasi mulai ramai.</button>
+                    <button class="q-opt" onclick="qNext(7,3)"><span class="ok">C —</span> Sudah memetakan kalender event atau musim liburan dan menyesuaikan stok serta promo jauh-jauh hari.</button>
+                </div>
+            </div>
+
+            <!-- PERTANYAAN 08 -->
+            <div id="qs8" class="q-hidden">
+                <div class="q-label">Pertanyaan 08 / 08</div>
+                <div class="q-question">Bagaimana cara Anda membandingkan performa bisnis saat ini?</div>
+                <div class="q-opts">
+                    <button class="q-opt" onclick="qFinish(1)"><span class="ok">A —</span> Jarang membandingkan, hanya fokus pada uang yang masuk hari ini.</button>
+                    <button class="q-opt" onclick="qFinish(2)"><span class="ok">B —</span> Membandingkan omzet bulan ini dengan bulan lalu secara garis besar saja.</button>
+                    <button class="q-opt" onclick="qFinish(3)"><span class="ok">C —</span> Melakukan perbandingan mendalam dengan bulan sebelumnya dan bulan yang sama di tahun lalu (Year-on-Year) untuk melihat tren pertumbuhan.</button>
+                </div>
+            </div>
+
+            <!-- HASIL DIAGNOSA -->
+            <div id="qresults" class="q-hidden text-center py-4">
+                <div id="r-chaos" class="q-result" style="display: none;">
                     <div class="r-tier chaos">CHAOS</div>
                     <div class="r-mode">// Intuition-Based</div>
-                    <p class="r-desc">Data bisnis Anda masih berserakan dan keputusan berjalan di atas asumsi. Ini bukan kelemahan — ini titik awal yang paling umum, dan paling cepat bisa diperbaiki bersama kami.</p>
+                    <p class="r-desc">Data bisnis Anda masih berserakan dan keputusan berjalan di atas asumsi. Ini bukan kelemahan, ini titik awal yang paling umum dan paling cepat bisa diperbaiki bersama kami.</p>
                     <a href="mailto:nalapana.intelligence@gmail.com?subject=Konsultasi%20-%20CHAOS%20Stage" class="r-cta chaos">Mulai Dari Nol Bersama Kami</a>
                     <button onclick="qReset()" class="q-reset">↩ Ulangi Diagnosa</button>
                 </div>
-                <div id="r-reporter" class="q-result">
+                
+                <div id="r-reporter" class="q-result" style="display: none;">
                     <div class="r-tier reporter">REPORTER</div>
                     <div class="r-mode">// Observation-Based</div>
-                    <p class="r-desc">Anda sudah punya laporan — tapi baru sekadar tahu apa yang terjadi, belum memahami mengapa dan apa yang harus dilakukan. Satu langkah lagi menuju data-driven.</p>
+                    <p class="r-desc">Anda sudah punya laporan tapi baru sekadar tahu apa yang terjadi, belum memahami mengapa dan apa yang harus dilakukan. Satu langkah lagi menuju data-driven.</p>
                     <a href="mailto:nalapana.intelligence@gmail.com?subject=Konsultasi%20-%20REPORTER%20Stage" class="r-cta reporter">Tingkatkan ke Level Analitik</a>
                     <button onclick="qReset()" class="q-reset">↩ Ulangi Diagnosa</button>
                 </div>
-                <div id="r-strategist" class="q-result">
+                
+                <div id="r-strategist" class="q-result" style="display: none;">
                     <div class="r-tier strategist">STRATEGIST</div>
                     <div class="r-mode">// Data-Driven</div>
                     <p class="r-desc">Data sudah menjadi kompas utama bisnis Anda. Saatnya naik ke level prediksi, otomasi, dan keunggulan kompetitif berbasis intelligence yang lebih dalam.</p>
@@ -896,6 +960,7 @@
         </div>
     </div>
 </section>
+
 
 
 <!-- ═══════════════════════════════════════
@@ -911,7 +976,7 @@
             </h2>
             <p class="contact-sub">
                 Partner terpercaya untuk bertumbuh lebih tajam bersama data.<br>
-                Keberlanjutan bisnis bukan tentang tebakan — melainkan keputusan berbasis data analytics.
+                Keberlanjutan bisnis bukan tentang tebakan melainkan keputusan berbasis data analytics.
             </p>
             <a href="mailto:nalapana.intelligence@gmail.com" class="btn-contact">Konsultasi Sekarang</a>
             <a href="mailto:nalapana.intelligence@gmail.com" class="contact-email">nalapana.intelligence@gmail.com</a>
@@ -952,37 +1017,78 @@
     });
 
     // QUIZ
-    let step = 1, scores = [];
 
-    function qNext(s, score) {
-        scores.push(score);
-        document.getElementById("qs"+s).classList.add("q-hidden");
-        step++;
-        document.getElementById("qs"+step).classList.remove("q-hidden");
-        document.getElementById("qprog").style.width = (step/4*100)+"%";
+    let currentStep = 1;
+    const totalSteps = 8;
+    let scores = {};
+
+    function updateProgress() {
+        const percentage = (currentStep / totalSteps) * 100;
+        document.getElementById('qprog').style.width = percentage + '%';
+    }
+
+    function qNext(step, score) {
+        // Simpan skor dari step saat ini
+        scores[step] = score;
+
+        // Sembunyikan pertanyaan sekarang
+        document.getElementById('qs' + step).classList.add('q-hidden');
+
+        // Beralih ke pertanyaan berikutnya
+        currentStep = step + 1;
+        updateProgress();
+
+        // Tampilkan pertanyaan baru
+        document.getElementById('qs' + currentStep).classList.remove('q-hidden');
     }
 
     function qFinish(score) {
-        scores.push(score);
-        document.getElementById("qs4").classList.add("q-hidden");
-        document.getElementById("qprog").style.width = "100%";
-        const avg = scores.reduce((a,b) => a+b, 0) / scores.length;
-        document.getElementById("qresults").classList.remove("q-hidden");
-        const id = avg <= 1.5 ? "r-chaos" : avg <= 2.4 ? "r-reporter" : "r-strategist";
-        document.getElementById(id).classList.add("show");
-        setTimeout(() => document.getElementById("qresults")
-            .scrollIntoView({behavior:"smooth", block:"center"}), 200);
+        scores[totalSteps] = score;
+
+        // Hitung akumulasi nilai total
+        let totalScore = 0;
+        for (let i = 1; i <= totalSteps; i++) {
+            totalScore += scores[i] || 0;
+        }
+
+        // Sembunyikan pertanyaan terakhir
+        document.getElementById('qs' + totalSteps).classList.add('q-hidden');
+
+        // Tampilkan container hasil
+        document.getElementById('qresults').classList.remove('q-hidden');
+
+        // Sembunyikan semua elemen hasil terlebih dahulu
+        document.getElementById('r-chaos').style.display = 'none';
+        document.getElementById('r-reporter').style.display = 'none';
+        document.getElementById('r-strategist').style.display = 'none';
+
+        // Klasifikasi Hasil Evaluasi (Berdasarkan rentang skor 8 - 24)
+        if (totalScore <= 13) {
+            document.getElementById('r-chaos').style.display = 'block';
+        } else if (totalScore <= 19) {
+            document.getElementById('r-reporter').style.display = 'block';
+        } else {
+            document.getElementById('r-strategist').style.display = 'block';
+        }
     }
 
     function qReset() {
-        scores = []; step = 1;
-        document.getElementById("qresults").classList.add("q-hidden");
-        document.querySelectorAll(".q-result").forEach(r => r.classList.remove("show"));
-        for(let i=1;i<=4;i++) document.getElementById("qs"+i).classList.add("q-hidden");
-        document.getElementById("qs1").classList.remove("q-hidden");
-        document.getElementById("qprog").style.width = "25%";
-        document.getElementById("diagnosis").scrollIntoView({behavior:"smooth"});
+        scores = {};
+        currentStep = 1;
+        updateProgress();
+
+        // Sembunyikan semua hasil diagnosa
+        document.getElementById('qresults').classList.add('q-hidden');
+
+        // Sembunyikan semua elemen pertanyaan
+        for (let i = 1; i <= totalSteps; i++) {
+            document.getElementById('qs' + i).classList.add('q-hidden');
+        }
+
+        // Tampilkan pertanyaan pertama kembali
+        document.getElementById('qs1').classList.remove('q-hidden');
     }
+
 </script>
 </body>
 </html>
