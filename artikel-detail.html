@@ -427,22 +427,12 @@
         }
         ];
 
-        // 1. Baca alamat lengkap saat ini (misal: /artikel-detail/pentingnya-data-analytics)
-       const path = window.location.pathname;
-       
-       // 2. Pecah alamatnya dan ambil bagian paling belakang sebagai "slug"
-       // filter(Boolean) digunakan untuk memastikan tidak ada spasi kosong yang ikut terbaca
-       const pathArray = path.split('/').filter(Boolean);
-       const slug = pathArray[pathArray.length - 1]; 
-       
-       // 3. Cari artikel berdasarkan 'slug', BUKAN 'id' lagi
-       // Asumsi: di dalam 'articles' Anda sudah ada properti slug (contoh: a.slug === "pentingnya-data-analytics")
-       const artikel = articles.find(a => a.slug === slug);
+     
 
            
-        // const params = new URLSearchParams(window.location.search);
-        // const id = parseInt(params.get('id')) || 1;
-        // const artikel = articles.find(a => a.id === id);
+        const params = new URLSearchParams(window.location.search);
+        const id = parseInt(params.get('id')) || 1;
+        const artikel = articles.find(a => a.id === id);
 
         if (artikel) {
             document.getElementById('title').textContent = artikel.title;
