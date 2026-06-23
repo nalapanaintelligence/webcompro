@@ -70,7 +70,27 @@ nav {
     transition: box-shadow 0.3s;
 }
 
-    /* Sembunyikan kotak centang dan ikon hamburger di layar PC */
+   
+        .nav-logo { height: 52px; width: auto; display: block; }
+
+        .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+
+        .nav-links a {
+            font-family: "DM Mono", monospace;
+            font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--slate); text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--blue-mid); }
+
+        .nav-cta {
+            background: var(--blue-mid) !important;
+            color: white !important;
+            padding: 10px 22px;
+        }
+        .nav-cta:hover { background: var(--blue-dark) !important; color: white !important; }
+
+         /* Sembunyikan kotak centang dan ikon hamburger di layar PC */
     #menu-toggle, .hamburger {
         display: none;
     }
@@ -113,36 +133,18 @@ nav {
             z-index: 999; 
         }
     
-        /* Tampilkan menu ke bawah SAAT ikon hamburger di-klik */
+       
         #menu-toggle:checked ~ .nav-links {
             display: flex;
         }
     
-        /* Pusatkan teks menu di HP */
+       
         .nav-links li {
             text-align: center;
             width: 100%;
         }
     }
             
-        .nav-logo { height: 52px; width: auto; display: block; }
-
-        .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-
-        .nav-links a {
-            font-family: "DM Mono", monospace;
-            font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-            color: var(--slate); text-decoration: none;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--blue-mid); }
-
-        .nav-cta {
-            background: var(--blue-mid) !important;
-            color: white !important;
-            padding: 10px 22px;
-        }
-        .nav-cta:hover { background: var(--blue-dark) !important; color: white !important; }
 
         /* ─── HERO ─── */
         #hero {
