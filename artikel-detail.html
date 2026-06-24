@@ -167,18 +167,15 @@
 
         /* ─── ARTICLE BODY ─── */
         .article-body {
-            flex: 1;
-            padding: 56px 56px;
-        }
-
-        .article-body-inner {
-            max-width: 800px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 40px;
-            gap: 64px;
-            align-items: start;
-        }
+           flex: 1;
+           padding: 56px 24px;   /* kurangi padding horizontal agar lebih fleksibel */
+       }
+       
+       .article-body-inner {
+           max-width: 800px;
+           margin: 0 auto;
+           display: block;        /* hapus grid, biarkan konten full-width dalam max-width */
+       }
 
         /* ─── CONTENT ─── */
         .content {
