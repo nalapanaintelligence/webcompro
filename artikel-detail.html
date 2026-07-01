@@ -421,6 +421,47 @@
             <br>
             <p><em>Source: <a href="https://inside.fifa.com/innovation" target="_blank">https://inside.fifa.com/innovation</a></em></p>
                 </div>`
+        },
+            {
+            id: 3,
+            tag: "Data Analytics",
+            title: "Modeling Mindset: Seni Menerjemahkan Data",
+            slug: "modeling-mindset-seni-menerjemahkan-data",
+            date: "1 July 2026",
+            fullContent: `
+                <div style="text-align: justify;">
+            <p>Data telah menjadi pondasi utama dalam memprediksi kehabisan stok barang, menganalisis dampak perubahan iklim hingga mengidentifikasi efek samping obat pada pasien. Namun data mentah sering kali sangat bising (<em>noisy</em>) dan rumit. Mengumpulkan jadi satu dan merapikan data tersebut apakah sudah cukup? Tentu tidak, kita perlu mengolahnya sesuai <em>mindset</em> yang kita miliki. Untuk itu kita butuh sebuah alat yaitu model. Model ini berupa model matematika yang digunakan untuk mengolah dan menginterpretasi data. Hal ini membantu mempermudah untuk mempertemukan aspek kombinasi dari data dan realita dunia. Kita dapat melakukan prediksi, memahami bagaimana berjalannya pola di sekitar, menguji teori, mengambil keputusan dan mengkomunikasikan hasilnya kepada orang lain.</p>
+  
+  <p>Definisi dari model tidak ada konsesi khusus yang menjabarkan. Namun secara umum definisinya adalah model matematika yang tersusun dari variabel dan fungsi.</p>
+  
+  <ul>
+    <li><strong>Variabel</strong> adalah aspek dari data dan model. Variabel ada banyak sekali tipe dan macamnya sehingga dapat mewakili banyak <em>mindset</em>. Masing-masing memiliki nama yang mewakili peran (<em>role</em>) dari aspek tersebut. Sebagai contoh: Variabel dengan tipe numerik berisikan data transaksi penjualan atau bisa juga tekanan darah seorang pasien. Variabel juga bisa mewakili aspek yang abstrak seperti <em>happiness</em>.</li>
+    <li><strong>Fungsi</strong> adalah sebuah rumus yang membuat antar variabel tersebut menjadi <em>relate</em> / terhubung. Rumus ini bisa dari sesederhana y = 5*x (variabel y adalah 5 kali-nya dari variabel x) dan yang lebih kompleks bisa seperti <em>neural network</em> dengan berjuta variabel. Sebagai contoh: Rumus <em>joint distribution</em> dari 2 variabel menjelaskan berapa peluang / probabilitas dari kombinasi 2 variabel tersebut terjadi secara bersamaan.</li>
+  </ul>
+  
+  <p>Jadi model memiliki komposisi 2 hal di atas dan tugas kita adalah menggunakan data untuk mencari fungsi terbaik (<em>best function</em>) agar <em>relate</em> dengan variabel yang kita punya. Proses mencari <em>best function</em> dari model disebut dengan <em>estimation, training, fitting / learning</em>. Model akan semakin teroptimisasi dengan data dan <em>mindset</em> kita.</p>
+
+  <h2>Model Berakar pada Mindsets</h2>
+  <p>Walaupun kita sudah mempunyai model yang memiliki fungsi dan variabel dari data yang kita punya, interpretasi / terjemahan hasil dari model tidak bisa langsung diturunkan. Dua model matematika yang serupa bisa digunakan dengan cara berbeda oleh orang yang berbeda. Karena tujuan &amp; bagaimana cara menerjemahkan model tergantung oleh <em>mindset</em> pembuatnya. Pembuat model perlu memiliki asumsi lebih lanjut untuk dapat menurunkan terjemahan arti dari hasil model tersebut.</p>
+  
+  <p>Sebagai contoh, kita mempunyai model regresi linier yang memiliki fungsi prediksi panen padi dari variabel curah hujan, temperatur, dan pupuk yang digunakan. Hal di atas hanya sebuah model. Interpretasi membutuhkan <em>mindset</em> tertentu yang kita tuangkan pada pertanyaan asumsi, misalnya:</p>
+  <ul>
+    <li>Dari model apakah bisa melihat efek dari pupuk terhadap hubungan kausal (sebab akibat) terhadap hasil panen padi?</li>
+    <li>Apakah efek dari pupuk ini signifikan terhadap hasil panen? Seberapa jauh?</li>
+  </ul>
+  <p>Jadi kita perlu menuangkan pengetahuan kita terhadap dunia (dalam kasus ini pengetahuan tentang panen padi dan hal yang terkait) dengan pembuatan pertanyaan asumsi sesuai <em>mindset</em> dan tujuan yang ingin kita jawab.</p>
+
+  <h2>Mindset adalah Perspektif Dunia</h2>
+  <p><em>Modeling mindset</em> adalah sebuah <em>framework</em> modeling fenomena dunia dengan data. Dengan <em>modeling mindset</em> kita melakukan investigasi dengan banyak lensa atau <em>mindset</em> tergantung apa yang ingin kita jawab. Hal ini akan membentuk ulang kita bagaimana melihat dunia melalui sebuah model. Tiap <em>mindset</em> memiliki masing-masing pertanyaan asumsi yang berbeda.</p>
+  <p>Sebagai contoh, pertanyaan seperti peluang / probabilitas akan menjadi di luar lingkup jika <em>mindset</em> yang digunakan adalah paham <em>machine learning</em> yaitu merumuskan masalah sebagai masalah prediksi. Pembuat yang memiliki <em>mindset</em> tersebut akan memilih model terbaik dengan <em>error</em> yang paling rendah dan model tersebut bisa fungsi apa pun, bisa jadi bukan fungsi probabilitas. Memilih model yang suboptimal akan menyalahi <em>mindset supervised machine learning</em> yang murni. Jadi tiap <em>mindset</em> akan memiliki kumpulan model dan berbagai cara untuk evaluasi seberapa bagus model tersebut sesuai <em>mindset</em> yang digunakan.</p>
+
+  <h2>Mindset Dibentuk oleh Budaya</h2>
+  <p><em>Modeling mindset</em> bukan sebuah teori melainkan sebuah budaya pola pikir yang dibentuk oleh komunitas penggunanya dan disepakati bersama secara implisit. Sebagai contoh ada dominasi budaya pola pikir yang mewajibkan nilai <em>p-value</em> (nilai probabilitas untuk menguji apakah sebuah temuan terjadi karena kebetulan atau benar-benar nyata secara statistik) dalam tiap analisa dan visualisasi data.</p>
+  <p>Ada juga budaya pola pikir yang hanya melihat optimasi nilai <em>error</em> dari hasil prediksi. Namun dari contoh 2 budaya tersebut ada individu yang ekstrim hanya menganut satu <em>mindset</em> seperti praktisi <em>machine learning</em> yang selalu mencari label data untuk mengubah setiap masalah menjadi problem prediksi. Secara realitas batasan antara <em>mindset</em> ini jauh lebih fleksibel. Sebagian besar individu telah mengadopsi campuran dari berbagai pendekatan <em>mindset</em>.</p>
+  <p>Sebagai contoh dalam praktek <em>machine learning</em> kita dituntut untuk mendapatkan model yang mempunyai prediksi <em>error</em> rendah namun juga mudah diterjemahkan dan memiliki hubungan sebab akibat. Fleksibilitas dan keterbukaan pada <em>mindset</em> inilah yang membuat pembuat model lebih baik. Sehingga data dapat diterjemahkan lebih baik dan <em>relate</em> dengan realitas dunia.</p>
+   <br>
+  <p><em>Source: <a href="https://christophmolnar.com/books/modeling-mindsets" target="_blank">Modeling Mindsets by Christoph Molnar</a></em></p>             
+                </div>`
         }
          
         ];
