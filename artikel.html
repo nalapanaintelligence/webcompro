@@ -254,36 +254,38 @@
         <div class="cap-grid" id="list"></div>
     </div>
 
-    <script>
-        const articles = [
-            // {
-        id: 3, 
-        title: "Modeling Mindset: Seni Menerjemahkan Data", 
-        date: "1 July 2026", 
-        desc: "Model matematika yang digunakan untuk mengolah dan menginterpretasi data membantu mempermudah untuk mempertemukan aspek kombinasi dari data dan realita dunia."
-    },
-          {
-        id: 2, 
-        title: "FIFA World Cup and Data Revolution", 
-        date: "23 June 2026", 
-        desc: "Teknologi tidak hanya digunakan FIFA untuk menjaga keadilan dan keamanan di lapangan, tetapi juga untuk mendemokratisasi akses dan memperkaya cara penggemar dari segala usia menikmati sepak bola."
-    },
-          {id: 1, title: "Mengukur Kesehatan Bisnis: Navigasi Strategis untuk Pertumbuhan Anda", date: "21 May 2026", desc: "Laporan rutin untuk memantau kesehatan bisnis Anda."}
-            {id: 1, title: "Pentingnya Data-Driven Decision Making", date: "20 May 2026", desc: "Pelajari cara mengubah data menjadi keputusan strategis yang akurat, efisien, dan kompetitif untuk pertumbuhan bisnis Anda"}, 
-    
-   
-    
-               
-        ];
-        document.getElementById('list').innerHTML = articles.map(a => `
-            <a href="artikel-detail.html?id=${a.id}" class="cap-card" style="text-decoration:none;">
-                <div class="cap-idx">0${a.id} / ${a.date}</div>
-                <div class="cap-title">${a.title}</div>
-                <div class="cap-desc">${a.desc}</div>
-                <div class="cap-badge">Baca Artikel</div>
-            </a>
-        `).join('');
-    </script>
+   <script>
+    const articles = [
+        {
+            id: 3, 
+            title: "Modeling Mindset: Seni Menerjemahkan Data", 
+            date: "1 July 2026", 
+            desc: "Model matematika yang digunakan untuk mengolah dan menginterpretasi data membantu mempermudah untuk mempertemukan aspek kombinasi dari data dan realita dunia."
+        },
+        {
+            id: 2, 
+            title: "FIFA World Cup and Data Revolution", 
+            date: "23 June 2026", 
+            desc: "Teknologi tidak hanya digunakan FIFA untuk menjaga keadilan dan keamanan di lapangan, tetapi juga untuk mendemokratisasi akses dan memperkaya cara penggemar dari segala usia menikmati sepak bola."
+        },
+        {
+            id: 1, 
+            title: "Pentingnya Data-Driven Decision Making", 
+            date: "20 May 2026", 
+            desc: "Pelajari cara mengubah data menjadi keputusan strategis yang akurat, efisien, dan kompetitif untuk pertumbuhan bisnis Anda"
+        } // <-- Di sini tadi ada duplikasi id: 1 dan koma yang rusak, sekarang sudah bersih!
+    ];
+
+    // Me-render artikel ke dalam HTML secara otomatis
+    document.getElementById('list').innerHTML = articles.map(a => `
+        <a href="artikel-detail.html?id=${a.id}" class="cap-card" style="text-decoration:none;">
+            <div class="cap-idx">0${a.id} / ${a.date}</div>
+            <div class="cap-title">${a.title}</div>
+            <div class="cap-desc">${a.desc}</div>
+            <div class="cap-badge">Baca Artikel</div>
+        </a>
+    `).join('');
+</script>
 
     <!-- ═══════════════════════════════════════
      FOOTER / CONTACT
