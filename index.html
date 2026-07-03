@@ -397,7 +397,230 @@
         
         .why-desc { font-size: 13px; color: var(--blue-body); line-height: 1.65; }
         .why-desc strong { color: var(--blue-dark); }
-    
+
+        
+ #testimonials { 
+            background: var(--white); 
+            padding: 80px 20px;
+            display: flex;
+            justify-content: center;
+            overflow: hidden; /* Mencegah overflow horizontal pada layar kecil */
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* Header Layout: Menempatkan Judul & Tombol sejajar */
+        .header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 52px;
+            gap: 24px;
+        }
+
+        .header-content {
+            flex: 1;
+        }
+
+        .label-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .label { 
+            color: var(--slate); 
+            font-family: "DM Mono", monospace;
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .label::before { 
+            content: "";
+            display: inline-block;
+            width: 30px;
+            height: 1px;
+            background: var(--slate); 
+            margin-right: 12px;
+        }
+
+        .sec-h2 { 
+            color: var(--blue-dark); 
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin: 0;
+            max-width: 600px;
+        }
+
+        .section-intro {
+            font-size: 16px; 
+            color: var(--blue-body);
+            max-width: 560px; 
+            line-height: 1.65; 
+            margin-top: 24px;
+            margin-bottom: 0;
+        }
+
+        .slider-nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        .slider-nav button {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--blue-dark);
+            transition: all 0.3s ease;
+        }
+
+        .slider-nav button:hover {
+            border-color: var(--blue-light);
+            background: var(--blue-pale);
+            color: var(--blue-light);
+        }
+
+        .slider-nav button svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Bungkus luar untuk memberikan border keliling yang rapi */
+        .slider-wrapper {
+            border: 1px solid var(--border-color);
+            background: var(--border-color);
+            overflow: hidden; /* Sembunyikan tepi kasar */
+        }
+
+        .testimonial-slider {
+            display: grid; 
+            /* Menjadikan grid menyamping (horizontal) */
+            grid-auto-flow: column; 
+            /* Menampilkan tepat 2 kartu di desktop (50% dikurang sedikit gap) */
+            grid-auto-columns: calc(50% - 0.5px); 
+            gap: 1px; 
+            
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            
+            /* Menyembunyikan scrollbar bawaan browser */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+        }
+
+        .testimonial-slider::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+        
+        .testi-card {
+            background: var(--white); 
+            padding: 48px 40px;
+            transition: background 0.25s ease;
+            position: relative; 
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            scroll-snap-align: start; /* Snap ke awal saat digeser */
+            min-height: 320px; /* Menjaga tinggi kartu tetap konsisten */
+        }
+        
+        .testi-card::before {
+            content: ""; 
+            position: absolute;
+            top: 0; left: 0; right: 0; 
+            height: 2px;
+            background: var(--blue-light);
+            transform: scaleX(0); 
+            transform-origin: left;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .testi-card:hover { 
+            background: var(--blue-pale); 
+        }
+        
+        .testi-card:hover::before { 
+            transform: scaleX(1); 
+        }
+        
+        .testi-id {
+            font-family: "DM Mono", monospace;
+            font-size: 10px; 
+            letter-spacing: 0.15em; 
+            color: var(--blue-light);
+            margin-bottom: 24px;
+            display: block;
+        }
+        
+        .testi-quote { 
+            font-size: 15px; 
+            color: var(--blue-body); 
+            line-height: 1.75; 
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .testi-author {
+            font-size: 14px; 
+            font-weight: 700; 
+            color: var(--blue-dark);
+            letter-spacing: -0.01em; 
+            text-transform: uppercase;
+            margin-top: auto;
+        }
+
+        .testi-role {
+            font-size: 13px;
+            color: var(--slate);
+            margin-top: 6px;
+            font-weight: 400;
+            text-transform: none;
+        }
+
+        @media (max-width: 992px) {
+            .header-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .sec-h2 { font-size: 36px; }
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-slider {
+                /* Di layar HP, tampilkan 1 kartu penuh secara bergiliran */
+                grid-auto-columns: 100%;
+            }
+            #testimonials { padding: 60px 20px; }
+            .sec-h2 { font-size: 32px; }
+            .testi-card { padding: 40px 28px; }
+        }
+
+
+
+
         /* ─── QUIZ ─── */
         #diagnosis { overflow: hidden; }
         #diagnosis .bg-layer { opacity: 0.15; }
@@ -623,7 +846,8 @@
         <li><a href="#about">Tentang Kami</a></li>
         <li><a href="#analytics">Mengapa Data</a></li>
         <li><a href="#capabilities">Layanan Kami</a></li>
-        <li><a href="#whyus">Kemitraan</a></li>
+        <li><a href="#whyus">Mengapa Kami</a></li>
+        <li><a href="#testimonials">Partner Kami</a></li>
         <li><a href="#diagnosis">Diagnosa Data</a></li>
         <li><a href="artikel.html" target="_blank">Artikel</a></li>
         <li><a href="https://wa.me/6285190647961" class="nav-cta">Hubungi Kami</a></li>
@@ -800,7 +1024,7 @@
 <section id="whyus" class="has-bg">
     <div class="bg-layer"></div>
     <div class="sec-wrap">
-        <div class="label reveal">/ 04 — Kemitraan</div>
+        <div class="label reveal">/ 04 — Mengapa Nalapana</div>
         <h2 class="sec-h2 reveal">Keunggulan Berkolaborasi<br>Bersama Kami.</h2>
         <p class="whyus-intro reveal">Kami memastikan solusi yang dibangun berasal dari kebutuhan masing-masing bisnis dan dapat diimplementasikan secara mudah oleh tim Anda.</p>
 
@@ -838,6 +1062,70 @@
         </div>
     </div>
 </section>
+
+    <section id="testimonials">
+        <div class="container">
+            
+            <!-- Header & Navigasi -->
+            <div class="header-wrapper">
+                <div class="header-content">
+                    <div class="label-wrap">
+                        <span class="label">/ 05 - PARTNER KAMI</span>
+                    </div>
+                    <h2 class="sec-h2">
+                        Suara Partner Tentang Nalapana.
+                    </h2>
+                    <p class="section-intro">
+                        Kepercayaan adalah fondasi kerja kami. Kami memastikan setiap kolaborasi memberikan dampak nyata bagi operasional dan pertumbuhan bisnis partner kami.
+                    </p>
+                </div>
+                
+                <!-- Tombol Navigasi Kiri & Kanan -->
+                <div class="slider-nav">
+                    <button id="prevBtn" aria-label="Previous Testimonial">
+                        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    <button id="nextBtn" aria-label="Next Testimonial">
+                        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Wrapper luar untuk border grid 1px -->
+            <div class="slider-wrapper">
+                <!-- Kontainer Slider yang bisa digeser -->
+                <div class="testimonial-slider" id="slider">
+                    
+                    <!-- KARTU TESTIMONI 1 -->
+                    <div class="testi-card">
+                        <div>
+                            <span class="testi-id">01 / Prada Espresso</span>
+                            <p class="testi-quote">
+                                "Selama ini operasional bisnis memang sudah saya pegang di luar kepala jadi data POS biasanya juga saya lihat untuk memantau profit bulanan. 
+Dengan Nalapana ternyata data tersebut jadi lebih bermanfaat. Saya terbantu dengan forecasting menu yg akan terjual sehingga mempunyai setidaknya angka acuan untuk mengatur stok bahan baku bulan depan. Plus adanya analisis review dengan membandingkan kafe lain, membuat saya bisa tahu posisi produk dan sentimen pasar dibanding kompetitor.
+Jadi, intuisi saya sekarang lebih tervalidasi oleh data. Peta strategi jadi lebih clear dan terukur, bukan lagi sekadar asumsi."
+                            </p>
+                        </div>
+                        <div class="testi-author">
+                            Prada Espresso
+                            <div class="testi-role"> </div>
+                        </div>
+                    </div>
+
+                    <!-- KARTU TESTIMONI 2 -->
+                    <div class="testi-card">
+                        <div>
+                            <span class="testi-id">02 / Balai Besar Guru & Tenaga Kependidikan DIY</span>
+                            <p class="testi-quote">
+                                "Workshop Pengolahan Data Verval GT dan Instrumen Training Need Assessment (TNA) yang BBGTK DIY laksanakan dengan mengundang narasumber dari Nalapana memberikan wawasan yang sangat bermanfaat terkait bagaimana strategi analisis dan teknik visualisasi data. Narasumber dari Nalapana memberikan materi secara sistematis, terstruktur, serta aplikatif praktik langsung mulai dari bagaimana data langkah data preparation, strategi menganalisis data dari instrumen dengan format multiple answer, essay, sampai ke visualisasi data dan dasboard. Materi-materi ini sangat mendukung kami didalam mengolah dan menganalisis data baik terkait kebutuhan peningkatan kompetensi guru dan tenaga kependidikan (TNA) serta analisis kebutuhan pengembangan media pembelajaran integratif, dimana hasil analisis ini sangat bermanfaat dalam mendukung tugas dan pokok lembaga BBGTK DIY sebagai Unit Pelaksana Teknis Kemendikdasmen terkait peningkatan kompetensi guru dan tenaga kependidikan. Terimakasih Nalapana. Sukses dan terus berkembang."
+                                                            </p>
+                        </div>
+                        <div class="testi-author">
+                            Balai Besar Guru & Tenaga Kependidikan DIY
+                            <div class="testi-role"> </div>
+                        </div>
+                    </div>
+
 
 <!-- ═══════════════════════════════════════
      QUIZ DIAGNOSIS
