@@ -530,25 +530,17 @@
             date: "14 July 2026",
             fullContent: `
                 <div style="text-align: justify;"> 
-                <p><em>"The numbers have no way of speaking for themselves. We speak for them. We imbue them with meaning."</em> - Nate Silver, The Signal and the Noise.</p>
-
+<p><em>"The numbers have no way of speaking for themselves. We speak for them. We imbue them with meaning."</em> - Nate Silver, The Signal and the Noise.</p>
 <p>Kutipan di atas merangkum tantangan yang selalu dihadapi di dunia data dari dulu hingga sekarang. Apalagi di era sekarang dimana data semakin melimpah dan kompleks. Kita butuh konteks dan metodologi yang tepat agar data bisa lebih memiliki makna. Lantas bagaimana cara untuk memberi makna pada data?</p>
-
 <h3>Mengunci Definisi</h3>
 <p>Langkah pertama adalah memberikan dan mengunci definisi sejak awal. Misalkan terdapat statement seperti "Terdapat 3,04 triliun pohon di bumi". Angka sebesar ini menjadi valid dengan kesepakatan definisi dari pohon. Para peneliti tidak langsung menghitung semua pohon namun mendefinisikan dan sepakat terlebih dulu bahwa definisi pohon adalah batang kayu dengan diameter minimal 12,7 cm. Apabila definisi tersebut digeser beberapa centimeter saja maka angka 3,04 triliun dapat berubah secara drastis.</p>
-
 <p><strong>Definisi yang disepakati dan dikunci sejak awal ini akan melahirkan konsistensi data.</strong> Salah satu indikator data mempunyai kualitas yang bagus adalah konsisten dan valid. Hal ini berlaku juga saat ingin membahas metrik bisnis seperti <em>repeat customer</em> adalah pelanggan yang kembali dalam waktu 7 hari atau 30 hari atau bagaimana? Jika acuan terus berubah maka data tidak akan memiliki landasan yang sepadan untuk dikomparasikan. Tanpa definisi yang disepakati bersama maka analisis apapun akan menghasilkan makna yang menyesatkan.</p>
-
 <h3>Menemukan Pola</h3>
 <p>Langkah selanjutnya setelah mengunci definisi yaitu memahami pola dasar dari data yang telah dikumpulkan. Hal ini sangat krusial untuk dilakukan sebelum masuk ke tools dan algoritma yang lebih kompleks. Sebagai contoh pada kasus <em>serial killer</em> Harold Shipman, seorang dokter keluarga di Inggris yang sangat dipercaya.</p>
-
 <p>Ini merupakan contoh nyata untuk melakukan <strong>EDA (Exploratory Data Analysis)</strong> sebelum menganalisis lebih lanjut. Setelah 2 dekade melakukan aksi pembunuhan sebanyak 200-300 pasiennya, kedok terbongkar menggunakan sebuah visualisasi <em>scatter-plot</em> sederhana tanpa algoritma prediksi yang rumit. Visualisasi <em>scatter-plot</em> memetakan usia vs jam kematian pasien, polanya langsung terlihat yaitu tingkat kematian pasien menumpuk pada satu waktu spesifik yaitu <em>after lunch</em>, waktu disaat Shipman hanya berdua dengan pasiennya.</p>
-
 <p>Seringkali para <em>analyst</em> terlalu terburu-buru untuk menggunakan model statistik tingkat tinggi padahal <em>insight</em> utama mungkin bisa ditemukan dengan melihat pola dari visualisasi yang tepat. Jadi sebelum menyusun model prediktif yang kompleks, <strong>memetakan sebaran data adalah langkah awal yang sangat krusial</strong>.</p>
-
 <h3>Tahapan Analisis Data</h3>
 <p>Dari 2 contoh diatas menjadi lebih jelas bahwa analisis data bukanlah sekadar soal rumus matematika atau bahasa pemrograman apa yang digunakan, melainkan tentang kerangka berpikir yang tepat dan sistematis. Salah satu urutan kerangka berpikir yang dapat digunakan saat analisis data yaitu <strong>PPDAC (Problem - Plan - Data - Analysis - Conclusion)</strong>. Setiap tahapan adalah krusial sehingga tidak dapat dilewati dan dikesampingkan:</p>
-
 <ul>
     <li><strong>Problem:</strong> Ini adalah tahap pendefinisian masalah. Tahap paling krusial ini dimulai dari pemahaman mendalam tentang apa masalah yang sebenarnya ingin diselesaikan. Jadi bukan sekadar mencari data yang menarik untuk diolah. Jika pertanyaan awal keliru maka jawaban yg paling akurat menurut matematis pun akan tidak memiliki makna.</li>
     <li><strong>Plan:</strong> Pada tahap ini dilakukan perencanaan seperti metrik apa saja yang akan digunakan, populasi mana yang akan menjadi target, dan bagaimana metode pengumpulan datanya. Perencanaan ini memastikan bahwa data yang akan dikumpulkan relevan dan merepresentasikan kondisi.</li>
@@ -556,11 +548,10 @@
     <li><strong>Analysis:</strong> Di tahap ini model statistik benar-benar diaplikasikan seperti feature engineering, menguji hipotesis, mencari korelasi hingga membangun model algoritma untuk menemukan pola tersembunyi yang dapat menjawab permasalah di tahap pertama.</li>
     <li><strong>Conclusion:</strong> Angka yang signifikan secara statistik belum tentu berdampak signifikan juga untuk bisnis. Tahap ini menuntut analisis untuk menerjemahkan hasil matematis ke dalam bahasa bisnis yang mudah dipahami dan menghasilkan <em>insight</em> mudah ditindaklanjuti oleh para pemangku kepentingan.</li>
 </ul>
-
 <p>Sehingga untuk menjawab pertanyaan tentang bagaimana cara memberi makna pada data, jawabannya bukan dari kecanggihan algoritma ataupun tools namun adalah <strong>fondasi berpikir yang sistematis</strong>. Fondasi utama justru terletak pada langkah esensial yang sering terabaikan yaitu definisi & eksplorasi pola sebelum melompat ke model yang lebih kompleks. Oleh karena itu kita membutuhkan kerangka berpikir seperti PPDAC agar berjalan dengan arah yang jelas. Hingga akhirnya kita mampu menerjemahkan bahasa matematis ke dalam <em>insight</em> bisnis yang berdampak nyata.</p>
-
 <p><em>Source: The Art of Statistics Learning from Data - David Spiegelhalter</em></p>
-         </div>`}
+</div>`
+             },
         ];
 
         const params = new URLSearchParams(window.location.search);
