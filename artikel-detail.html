@@ -594,6 +594,46 @@ Penelitian ini bertujuan untuk menggabungkan metode <em>Formal Concept Analysis<
     <li>Piao, T., Dou, Z., & Mai, S. (2027). Customer segmentation using big data: implications for retail marketing. <em>Journal of Retailing and Consumer Services</em>, 94, 104966. https://doi.org/10.1016/j.jretconser.2026.104966</li>
 </div>`
              },
+              
+               {
+            id: 6,
+            tag: "Data Strategy",
+            title: "Peran Data dalam Customer Segmentation",
+            slug: "peran-data-dalam-customer-segmentation",
+            date: "23 July 2026",
+            fullContent: `
+                <div style="text-align: justify;"> 
+<p>"The only constant in customer behavior is that it never stays constant."<br>
+Bayangkan sebuah bisnis Retail yang di awal tahun menjalankan <em>clustering</em> pelanggan berbasis RFM dan mendapat 5-7 segmen yang rapi. Kemudian dipakai sebagai basis <em>targeting</em> selama berbulan-bulan. Model tidak pernah di-<em>retrain</em>, <em>centroid</em> tidak pernah dicek ulang. Semua terlihat stabil sampai suatu titik, konversi <em>campaign</em> yang biasanya solid tiba-tiba anjlok tanpa ada perubahan apapun di <em>pipeline</em> atau algoritmanya. Ini <em>symptom</em> klasik dari satu hal yang jarang diperhitungkan ketika membuat model segmentasi: <em>drift</em>.</p>
+
+<h3>Static Clustering Mempunyai Expiry Date</h3>
+<p>Segmentasi berbasis <em>clustering</em> apapun algoritmanya, K-Means, K-medoids, atau Fuzzy C-means pada dasarnya adalah <em>snapshot</em>. Model dilatih dari distribusi data di satu <em>window</em> waktu tertentu, lalu <em>centroid</em>-nya dibekukan dan dipakai untuk <em>assign</em> pelanggan baru maupun lama secara terus-menerus. Masalahnya, distribusi perilaku pelanggan itu <em>non-stationary</em>. <em>Review</em> sistematis soal metode segmentasi di <em>e-commerce</em> (Information Systems and e-Business Management, 2023) menegaskan bahwa preferensi dan kebutuhan pelanggan berubah seiring waktu, sehingga metode segmentasi idealnya adaptif terhadap dinamika tersebut bukan model yang di-<em>deploy</em> sekali lalu dianggap valid selamanya. Begitu distribusi <em>underlying</em> bergeser cukup jauh dari saat model dilatih, <em>assignment cluster</em> jadi tidak representatif lagi. Bukan <em>error</em>-nya yang naik, tapi relevansinya yang turun.</p>
+
+<p><em>Drift</em> bukan fenomena tunggal. Ada beberapa pola pergeseran yang biasa dibedakan dalam literatur <em>concept drift</em>:</p>
+<ul>
+    <li><strong>Sudden drift:</strong> perubahan mendadak, biasanya dipicu <em>event</em> spesifik (kompetitor baru buka, kebijakan berubah, krisis ekonomi).</li>
+    <li><strong>Gradual drift:</strong> pergeseran perlahan selama beberapa periode, misalnya preferensi rasa atau kebiasaan <em>channel</em> belanja yang bergeser bertahap.</li>
+    <li><strong>Incremental drift:</strong> perubahan kecil yang konsisten searah dan terakumulasi, tiap <em>step</em>-nya nyaris tidak terasa signifikan.</li>
+    <li><strong>Recurring drift:</strong> pola musiman yang datang-pergi lalu kembali lagi, seperti lonjakan pembelian di periode tertentu tiap tahun.</li>
+</ul>
+<p>Bedanya penting secara praktis: <em>sudden drift</em> butuh deteksi cepat (<em>near-real-time</em>), sementara <em>gradual</em> dan <em>incremental drift</em> butuh <em>window</em> observasi yang lebih panjang supaya tidak salah tangkap <em>noise</em> sebagai <em>signal</em>.</p>
+
+<h3>Threshold Statis Tidak Cukup</h3>
+<p>Pendekatan paling naif untuk deteksi <em>drift</em> adalah <em>threshold</em> tunggal: kalau <em>centroid</em> bergeser lebih dari X unit, anggap itu <em>drift</em>. Masalahnya, data pelanggan hampir selalu punya <em>variance</em> harian yang wajar. <em>Threshold</em> yang terlalu ketat menghasilkan <em>false positive rate</em> tinggi (<em>alert fatigue</em>), sementara <em>threshold</em> yang longgar bikin <em>drift</em> yang <em>genuinely</em> penting baru ketahuan setelah terlambat. Kerangka kerja yang dipublikasikan di Computers (MDPI, 2026) oleh Vassiliou dkk. menawarkan pendekatan yang lebih defensif: sistem menghitung ulang <em>centroid</em> secara periodik (<em>sliding-window</em>, bukan <em>one-shot</em>), lalu pergeseran hanya dianggap sebagai <em>drift genuine</em> kalau ia bertahan dan konsisten <em>across</em> beberapa periode observasi berturut-turut, bukan cuma satu <em>snapshot</em> yang menyimpang. Dengan kata lain, mereka menambahkan semacam <em>persistence check</em> di atas <em>raw centroid shift</em>, supaya sistem tidak <em>overreact</em> ke fluktuasi jangka pendek tapi tetap sensitif terhadap pergeseran struktural. Begitu <em>drift</em> terkonfirmasi persisten, sistem <em>trigger event-based alert</em> notifikasi otomatis (misalnya lewat email) yang melaporkan munculnya segmen baru beserta <em>size</em> dan <em>value</em>-nya, tanpa perlu analis mengecek <em>dashboard</em> secara manual tiap minggu.</p>
+
+<h3>Sisi Implementasi</h3>
+<p>Dari sisi implementasi, ini artinya <em>pipeline</em> segmentasi idealnya tidak berhenti di tahap "<em>train model, deploy, done</em>". Perlu ada <em>monitoring layer</em> terpisah yang jalan di <em>background</em>: <em>recompute centroid</em> secara berkala, bandingkan terhadap <em>baseline</em>, dan punya <em>logic persistence</em> sebelum <em>trigger</em> notifikasi. Kompleksitasnya naik dibanding <em>clustering one-shot</em>, tapi <em>trade-off</em>-nya jelas. Kita geser dari <em>reactive</em> (baru sadar pas <em>revenue</em> sudah turun) ke <em>proactive</em> (sadar begitu pergeseran struktural mulai konsisten).</p>
+<p>Ini bukan tentang mengganti algoritma <em>clustering</em>-nya. RFM <em>extended</em> atau K-Means biasa tetap bisa dipakai sebagai basis. Yang berubah adalah lapisan di atasnya: dari "model statis yang dipercaya selamanya" jadi "model yang terus dicek validitasnya terhadap data terbaru."</p>
+
+<br>
+<h3>Source:</h3>
+<ul>
+    <li>Vassiliou, G., Chatzinikolaou, S., Batsakis, S., & Papadakis, N. (2026). Monitoring of Customer Segment Dynamics Using Clustering and Event-Based Alerts. <em>Computers</em>, 15(5), 276. https://doi.org/10.3390/computers15050276</li>
+    <li>A review on customer segmentation methods for personalized customer targeting in e-commerce use cases. (2023). <em>Information Systems and e-Business Management</em>. https://doi.org/10.1007/s10257-023-00640-4</li>
+</ul>
+                </div>`
+             },
+               
         ];
 
         const params = new URLSearchParams(window.location.search);
