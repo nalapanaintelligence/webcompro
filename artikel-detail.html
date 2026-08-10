@@ -689,6 +689,48 @@ Bayangkan sebuah bisnis Retail yang di awal tahun menjalankan <em>clustering</em
   </footer>
                    </div>`
              },
+               {
+    id: 9,
+    tag: "Data Analytics",
+    title: "Menghitung Efektivitas Promo",
+    slug: "menghitung-efektivitas-promo",
+    date: "10 August 2026",
+    fullContent: `
+        <div style="text-align: justify;"> 
+<p><em>"When faced with a difficult question, we often answer an easier one instead, usually without noticing the substitution."</em><br>
+Daniel Kahneman - <em>Thinking, Fast and Slow</em><br>
+<br>
+Kutipan di atas menggambarkan tepat apa yang sering terjadi saat evaluasi promo. Pertanyaan sulitnya adalah "apakah promo ini yang menyebabkan penjualan naik?". Tapi karena pertanyaan itu susah dijawab, kita diam-diam menggantinya dengan pertanyaan yang lebih gampang: "apakah penjualan naik selama promo berlangsung?". Dua pertanyaan ini terdengar mirip, tapi jawabannya bisa sangat berbeda, dan bedanya itu yang sering menentukan apakah sebuah bisnis untung atau justru rugi diam-diam dari promo yang dianggap sukses.</p>
+
+<h3>Naik Belum Tentu Untung</h3>
+<p>Penjualan yang naik saat promo berjalan bukan bukti bahwa promo itu berhasil. Ada pelanggan yang sebenarnya memang akan beli, cuma memajukan waktu belinya supaya kebagian diskon (<em>pull-forward</em>). Riset industri <em>trade promotion</em> bahkan menyebut ketika diukur dengan benar, 60-90% promo justru merusak margin, bukan menambah untung (Deep Marketing, 2026). Bukan karena promonya buruk, tapi karena kebanyakan bisnis berhenti di angka penjualan kotor yang naik, tanpa pernah menghitung berapa dari kenaikan itu yang benar-benar baru, dan berapa yang cuma terlihat naik padahal margin sebenarnya tergerus diskon. Menghitung dengan benar adalah satu-satunya cara membedakan dua kemungkinan itu sebelum diskon yang sama diulang lagi bulan depan.</p>
+
+<h3>Baseline: Angka Pembanding yang Sering Dilewatkan</h3>
+<p>Agar bisa tahu efek promo yang sebenarnya, kita butuh angka pembanding: berapa penjualan yang akan terjadi kalau promo itu tidak pernah ada. Angka ini disebut <em>baseline</em>, dan selisih antara penjualan aktual dengan <em>baseline</em> itulah yang disebut <em>uplift</em>, bukan angka penjualan total selama promo. <em>Baseline</em> biasanya dibangun dengan salah satu dari tiga cara: rata-rata bergerak dari data historis (paling sederhana), regresi yang memperhitungkan musiman dan variabel lain (lebih akurat), atau model <em>machine learning</em> yang mempertimbangkan banyak faktor sekaligus. Cara paling meyakinkan adalah membandingkan dengan <em>control group</em>, sekelompok toko atau pelanggan yang sengaja tidak dikasih promo, supaya perbandingannya bukan cuma tebakan statistik.</p>
+
+<h3>Metode Statistik yang Biasa Dipakai</h3>
+<p>Setelah <em>baseline</em> dan <em>uplift</em>-nya ada, barulah masuk ke metode statistik untuk memastikan hasilnya bukan kebetulan:</p>
+
+    <li><strong>Regresi berganda:</strong> melihat seberapa besar pengaruh promo terhadap volume penjualan, sambil mengontrol variabel lain seperti harga dan musim.</li>
+    <li><strong>Uji-t / uji hipotesis:</strong> menjawab apakah kenaikan yang terlihat itu signifikan secara statistik atau cuma <em>noise</em> harian yang wajar.</li>
+    <li><strong>Difference-in-Differences (DiD):</strong> membandingkan perubahan penjualan toko yang dipromosikan dengan toko kontrol pada periode yang sama, sehingga tren pasar yang mempengaruhi semua toko ikut terkontrol. Metode ini yang dianggap paling defensif dibanding cuma bandingkan <em>before-after</em>.</li>
+<br>
+
+<h3>Simulasi: Diskon Kopi Pagi 20% Jam 7-9</h3>
+<p>Logika di atas berlaku juga di skala kedai kecil. Anggap sebuah kedai kopi coba diskon 20% khusus pukul 7-9 pagi untuk menarik lebih banyak pelanggan di jam yang biasanya sepi. <em>Baseline</em>-nya diambil dari rata-rata transaksi jam 7-9 di hari-hari biasa. Begitu promo jalan, transaksi naik, tapi harga rata-rata per cangkir otomatis turun karena diskon, jadi omzet yang naik belum tentu diikuti margin yang naik.</p>
+<p>Titik krusialnya ada di seberapa besar <em>uplift</em> transaksi yang berhasil ditarik dibanding besarnya diskon yang diberikan. Kalau <em>uplift</em>-nya cuma cukup untuk menutup diskon, margin totalnya bisa berakhir flat, promo menarik lebih banyak orang tapi keuntungannya tidak ke mana-mana. Kalau <em>uplift</em>-nya jauh lebih besar, misalnya karena kedai juga aktif mempromosikan jam diskonnya lewat Instagram dan grup pelanggan setia, margin totalnya bisa benar-benar naik. Satu hal lagi yang wajib dicek: penjualan di jam sesudahnya. Kalau penjualan siang ikut turun, itu tanda <em>pull-forward</em>, pelanggan yang harusnya beli siang cuma pindah jam. Kalau penjualan siang tetap normal, <em>uplift</em> pagi itu baru bisa disebut tambahan yang sesungguhnya.</p>
+
+<p>Jadi kalau ditanya kenapa promo perlu dihitung dengan benar, jawabannya karena tanpa <em>baseline</em> dan <em>uplift</em> yang jelas, sebuah bisnis bisa terus merasa promonya sukses padahal margin yang sebenarnya tergerus pelan-pelan. Menghitung bukan soal seberapa canggih algoritmanya, tapi soal disiplin bertanya lebih jauh dari "apakah promo ini berpengaruh" ke "berpengaruh dan untung untuk siapa", sebelum diskon yang sama diulang lagi bulan depan.</p>
+
+<br>
+<h3>Source:</h3>
+
+    <li>Kahneman, D. (2011). <em>Thinking, Fast and Slow</em>. Farrar, Straus and Giroux.</li>
+    <li>Trade Promotion ROI: Incrementality vs Apparent Lift. (2026). <em>Deep Marketing</em>.</li>
+
+                </div>`
+}
+
 
         ];
 
