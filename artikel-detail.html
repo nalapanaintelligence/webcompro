@@ -845,6 +845,89 @@ Kutipan di atas menggambarkan tepat apa yang sering terjadi saat evaluasi promo.
   <p><strong>Source:</strong><br>
   Huan, S. (2026). Beyond proportional training set selection in data-driven models: A novel two side distributional decomposition method for urban flood prediction. <em>Journal of Hydrology</em>, 136265.</p>
                 </div>`
+                },
+               {
+    id: 11,
+    tag: "Data Strategy",
+    title: "In this era, bahkan AI pun bisa di terapkan pada pembuatan Aspal",
+    slug: "in-this-era-,-bahkan-ai-pun-bisa-di-terapkan-pada-pembuatan-aspal",
+    date: "31 August 2026",
+    fullContent: `
+    <div style="text-align: justify;"> 
+    <p>Indonesia merupakan negara kepulauan dengan wilayah yang sangat luas dan membentang dari Sabang sampai Merauke. Wilayahnya terpisah-pisah oleh lautan serta terdiri dari berbagai bentang alam yang beragam mulai dari pegunungan, dataran tinggi, hingga dataran rendah dan hutan belantara. Kondisi geografis ini menuntut tersedianya infrastruktur transportasi yang andal untuk menghubungkan antar wilayah, mendukung konektivitas, serta memacu pertumbuhan ekonomi. Oleh karena itu, pembangunan dan perbaikan jalan beraspal di Indonesia bergerak sangat masif dalam beberapa dekade terakhir. Saat ini, jalanan beraspal dapat ditemukan hampir di seluruh pelosok negeri. Bukan hanya pada jalan nasional maupun jalan provinsi, jaringan jalan kabupaten/kota hingga jalan-jalan di tingkat desa kini sebagian besar telah terhubung oleh lapisan aspal.</p>
+<p>Meskipun pembangunan fisik jalan meluas, kualitas dan ketahanan jalan beraspal masih menjadi tantangan besar. Di berbagai wilayah, pengguna jalan sering kali menjumpai kondisi aspal yang cepat rusak, timbul lubang (potholes), hingga permukaan yang bergelombang (rutting).</p>
+<p>Kondisi jalan yang buruk ini menimbulkan berbagai kerugian:</p>
+  <li><strong>Kenyamanan &amp; Keselamatan:</strong> Sangat mengganggu kenyamanan saat berkendara dan meningkatkan risiko kecelakaan lalu lintas.</li>
+  <li><strong>Kerusakan Kendaraan:</strong> Mengakibatkan komponen kendaraan, seperti suspensi, velg, dan ban, menjadi cepat aus atau rusak.</li>
+  <li><strong>Biaya Perawatan Tinggi:</strong> Pemerintah dan pengelola jalan harus mengalokasikan anggaran perbaikan yang besar secara berulang akibat usia pakai jalan yang pendek.</li>
+<p>Salah satu penyebab utama kerusakan dini tersebut adalah proses pemadatan (compaction) aspal yang kurang optimal atau tidak seragam pada saat konstruksi berlangsung.</p>
+<p>Di zaman yang serba modern ini, teknologi dalam proses pembuatan dan pengaspalan jalan terus berkembang pesat. Salah satu terobosan penting dalam dunia teknik sipil adalah penerapan sistem Intelligent Compaction (IC) atau Pemadatan Cerdas. Melalui teknologi IC, alat berat pemadat (vibratory roller) dilengkapi dengan berbagai sensor cerdas (seperti sensor percepatan/akselerasi, GPS, dan sensor suhu) untuk memantau tingkat kepadatan dan kekakuan aspal secara real-time saat penggilasan berlangsung. Di titik inilah teknologi Artificial Intelligence (AI) dimanfaatkan untuk menganalisis data sensor dan memprediksi kualitas pemadatan secara instan.</p>
+<p>Penggunaan algoritma Kecerdasan Buatan (AI) pada proses pengaspalan jalan memiliki beberapa tujuan utama:</p>
+  <li><strong>Pemantauan Kualitas Real-Time:</strong> Mengubah sinyal getaran dinamik dari mesin pemadat menjadi indikator kekuatan/kekakuan aspal (modulus) secara akurat pada saat pengerjaan berlangsung.</li>
+  <li><strong>Umpan Balik untuk Operator:</strong> Memberikan panduan pasti kepada operator alat berat mengenai berapa kali penggilasan yang dibutuhkan di setiap titik jalan, sehingga tidak terjadi pemadatan yang kurang (under-compaction) maupun berlebihan (over-compaction).</li>
+  <li><strong>Mencegah Kerusakan Dini:</strong> Memastikan seluruh lapisan aspal mencapai kepadatan yang seragam untuk mencegah timbulnya retak, lubang, dan gelombang di kemudian hari.</li>
+  <li><strong>Mengurangi Ketergantungan pada Pengalaman Manual:</strong> Menggantikan evaluasi berbasis perkiraan subjektif manusia dengan prediksi saintifik berbasis data numerik.</li>
+<p>Sebelumnya, para peneliti telah mencoba menerapkan model AI konvensional seperti Artificial Neural Network (ANN), Random Forest (RF), dan Support Vector Regression (SVR) untuk memprediksi tingkat kepadatan jalan. Namun, model-model AI terdahulu ini memiliki beberapa kelemahan signifikan:</p>
+  <li><strong>Model Black-Box:</strong> AI bekerja secara empiris murni ("kotak hitam") tanpa memahami hukum fisika atau mekanika getaran di balik data tersebut.</li>
+  <li><strong>Rentan Hasil Tidak Logis:</strong> Karena hanya mencocokkan data angka, AI konvensional sering menghasilkan nilai prediksi yang bertentangan dengan prinsip mekanika tanah dan getaran.</li>
+  <li><strong>Masalah Multi-Solution:</strong> Pada sistem jalan berlapis (aspal, pondasi semen, tanah dasar), satu sinyal getaran mesin bisa diartikan sebagai banyak kombinasi nilai kekuatan lapisan. Akibatnya, AI terdahulu hanya memprediksi nilai rata-rata yang ambigu.</li>
+  <li><strong>Hasil:</strong> Model AI lama memiliki tingkat akurasi dan generalisasi yang sangat rendah di lapangan, dengan nilai koefisien determinasi yang sangat jauh dari batas akurat.</li>
+<p>Untuk mengatasi keterbatasan AI terdahulu, Y. Zhu et al. (2026) melakukan penelitian dengan mengusulkan arsitektur AI jenis baru bernama Two-Staged Cascaded Mechanistic Data-Driven Model (Model Berbasis Data dan Mekanika Bertingkat Dua Tahap).</p>
+<p>Inovasi Utama yang Diterapkan:</p>
+<ol>
+  <li><strong>Integrasi Hukum Fisika (Mechanical Constraint):</strong> AI tidak dibiarkan menebak secara "buta". Prinsip mekanika getaran dimasukkan ke dalam fungsi perhitungan kesalahan (loss function) AI. Jika AI memberikan prediksi yang melanggar hukum fisika getaran, AI tersebut akan langsung diberi "hukuman" (penalty) agar memperbaiki prediksinya.</li>
+  <li><strong>Arsitektur Dua Tahap (Two-Staged Cascaded):</strong>
+    <ul>
+      <li><strong>Tahap 1:</strong> AI membaca sinyal getaran mesin dan memprediksi kekakuan total struktur jalan (k<sub>o</sub>).</li>
+      <li><strong>Tahap 2:</strong> AI menggunakan nilai k<sub>o</sub> dan data kekuatan pondasi (E<sub>u</sub>) untuk memisahkan dan memprediksi kekuatan elastis aspal (E<sub>3</sub>) serta sifat plastis aspal (E<sub>1</sub>) secara presisi.</li>
+    </ul>
+  </li>
+</ol>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Parameter Model</th>
+      <th>AI Konvensional Terdahulu</th>
+      <th>Model AI Fisika Bertingkat (Terbaru)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Penerapan Hukum Fisika</td>
+      <td>Tidak ada (Black-box)</td>
+      <td>Ya (Mechanical Constraint)</td>
+    </tr>
+    <tr>
+      <td>Akurasi Prediksi Kekakuan Total (k<sub>o</sub>)</td>
+      <td>R<sup>2</sup> = 0,71</td>
+      <td>R<sup>2</sup> = 0,92</td>
+    </tr>
+    <tr>
+      <td>Akurasi Prediksi Kekuatan Aspal (E<sub>3</sub>)</td>
+      <td>R<sup>2</sup> = 0,06 - 0,38</td>
+      <td>R<sup>2</sup> = 0,89</td>
+    </tr>
+    <tr>
+      <td>Akurasi Prediksi Sifat Plastis Aspal (E<sub>1</sub>)</td>
+      <td>R<sup>2</sup> = 0,10 - 0,25</td>
+      <td>R<sup>2</sup> = 0,77</td>
+    </tr>
+    <tr>
+      <td>Ketahanan di Kondisi Lapangan</td>
+      <td>Buruk / Rentan salah</td>
+      <td>Sangat Stabil &amp; Presisi</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Model AI terbaru ini telah diuji secara langsung pada proyek pembangunan Jalan Tol Mianjiu di Provinsi Sichuan, Tiongkok. Hasilnya membuktikan bahwa model AI ini secara akurat mampu membaca peningkatan kekuatan elastis aspal (E<sub>3</sub>) di setiap lintasan penggilasan hingga mencapai kondisi padat sempurna pada lintasan ke-6.</p>
+<p>Penerapan Artificial Intelligence yang digabungkan dengan ilmu mekanika getaran membuktikan bahwa AI tidak hanya relevan untuk dunia digital atau teknologi informasi, melainkan juga dapat mentransformasi industri konstruksi fisik dan teknik sipil.</p>
+<p>Dengan hadirnya teknologi AI pemadat cerdas (Intelligent Compaction) ini, proses pembangunan jalan di masa depan dapat dipantau secara presisi dan terukur. Bagi negara seperti Indonesia yang masif melakukan pembangunan jaringan jalan hingga ke pelosok desa, penerapan teknologi AI ini berpotensi besar meningkatkan mutu jalanan, memperpanjang usia pakai aspal, serta menghindarkan masyarakat dari bahaya jalan berlubang dan gelombang.</p>
+
+<p><strong>Source:</strong><br>
+Zhu, Y., Chen, F., Ma, T., Tong, Z., &amp; Song, Y. (2026). A two-staged cascaded mechanistic data-driven modulus prediction model for Intelligent Compaction of asphalt pavement surface layer. <em>Construction and Building Materials</em>, 540, Article 147743. <a href="https://doi.org/10.1016/j.conbuildmat.2026.147743" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.conbuildmat.2026.147743</a></p>
+                </div>`
                 }
         ];
 
